@@ -1,10 +1,14 @@
 import styled from 'styled-components';
 
+import logo from '@/assets/img/sprite_footer_02.png'
+import title from '@/assets/img/sprite_footer_01.png'
+
 export const AppFooterWrapper = styled.div`
   height: 172px;
   background-color: #f2f2f2;
   color: #666;
   border-top: 1px solid #d3d3d3;
+
   .content {
     display: flex;
     justify-content: space-between;
@@ -15,15 +19,18 @@ export const AppFooterWrapper = styled.div`
 export const FooterLeft = styled.div`
   padding-top: 15px;
   line-height: 24px;
+
   .link {
     a {
       color: #999;
     }
+
     .line {
       margin: 0 10px;
       color: #999;
     }
   }
+
   .copyright {
     span {
       margin-right: 15px;
@@ -33,18 +40,22 @@ export const FooterLeft = styled.div`
 
 export const FooterRight = styled.ul`
   display: flex;
+
   .item {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-right: 40px;
+
     .link {
       display: block;
       width: 50px;
       height: 45px;
-      background-image: url(${require("@/assets/img/sprite_footer_02.png")});
+
+      background-image: url(${logo});
       background-size: 110px 450px;
     }
+
     :nth-child(1) .link {
       background-position: -60px -101px;
     }
@@ -57,14 +68,16 @@ export const FooterRight = styled.ul`
     :nth-child(2) .link {
       background-position: 0 -101px;
     }
+
     .title {
       margin-top: 5px;
       display: block;
       width: 52px;
       height: 10px;
-      background-image: url(${require("@/assets/img/sprite_footer_01.png")});
+      background-image: url(${title});
       background-size: 180px 100px;
     }
+
     :nth-child(1) .title {
       background-position: -1px -90px;
     }
@@ -76,6 +89,7 @@ export const FooterRight = styled.ul`
       background-position: 0 -54px;
       margin-top: 6px;
     }
+
     :nth-child(4) .title {
       background-position: -1px -72px;
       margin-top: 6px;

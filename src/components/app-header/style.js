@@ -1,5 +1,7 @@
 import styled from 'styled-components'
 
+import logo from '@/assets/img/sprite_01.png'
+
 export const AppHeaderWrapper = styled.div`
     height: 75px;
     background-color: #242424;
@@ -49,7 +51,7 @@ export const HeaderLeft = styled.div`
               content: "";
               width: 28px;
               height: 19px;
-              background-image: url(${require("@/assets/img/sprite_01.png")});
+              background-image: url(${logo});
               background-position: -190px 0;
               top: 20px;
               right: -15px;
