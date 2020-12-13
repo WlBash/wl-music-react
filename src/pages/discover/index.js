@@ -1,6 +1,8 @@
-import React, {memo} from 'react';
+import React, { memo } from 'react';
 import { NavLink } from "react-router-dom";
 import { renderRoutes } from "react-router-config";
+
+//import request from "@/services/axios.js"
 
 import { 
   dicoverMenu
@@ -12,6 +14,16 @@ import {
 } from "./style";
 
 export default memo(function WlDiscover(props) {
+
+  // useEffect(() => {
+  //   request({
+  //     url: '/banner'
+  //   }).then((res) => {
+  //     console.log(res);
+  //   })
+    
+  // }, [])
+
   const { route } = props;
 
   return (
