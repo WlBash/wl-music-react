@@ -9,7 +9,7 @@ import {
   HotRadioWrapper
 } from './style';
 
-export default memo(function HYHotRadio() {
+export default memo(function WlHotRadio() {
   return (
     <HotRadioWrapper>
       <div className="radio-list">

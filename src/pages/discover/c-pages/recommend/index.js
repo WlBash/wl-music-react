@@ -1,28 +1,20 @@
 import React, { memo } from 'react'
-//import { useDispatch, useSelector, shallowEqual } from 'react-redux'
-//import { getTopBannerAction } from './store/actionCreators'
+
 import WlTopBanner from './c-cpns/top-banner'
 import WlHotRecommend from './c-cpns/hot-recommend'
 import WlNewAlbum from './c-cpns/new-album'
 import WlRankingList from './c-cpns/ranking-list'
+import WlUserLogin from './c-cpns/user-login'
+import WlSettleSinger from './c-cpns/settle-singer'
+import WlHotRadio from './c-cpns/hot-radio'
 import {
     RecommendWraper,
     Content,
     RecommendLeft,
     RecommendRight
 } from './style'
+
 function WlRecommend(props) {
-
-    // const { topBanners } = useSelector(state => ({
-    //     topBanners: state.getIn(["recommend","topBanners"])
-    // }), shallowEqual)
-
-    // const dispatch = useDispatch()
-
-    // useEffect(() => {
-    //     dispatch(getTopBannerAction())
-    // }, [dispatch])
-
     return (
         <RecommendWraper>
           <WlTopBanner />
@@ -33,20 +25,13 @@ function WlRecommend(props) {
                     <WlRankingList />
                 </RecommendLeft>
                 <RecommendRight>
+                    <WlUserLogin />
+                    <WlSettleSinger />
+                    <WlHotRadio />
                 </RecommendRight>
             </Content>
         </RecommendWraper>
     )
 }
-
-// const mapStateToProps = state => ({
-//     topBanners: state.recommend.topBanners
-// })
-
-// const mapDispatchToProps = dispatch => ({
-//     getBanners: () => {
-//         dispatch(getTopBannerAction())
-//     }
-// })
 
 export default memo(WlRecommend);
