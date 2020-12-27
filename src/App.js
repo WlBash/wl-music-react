@@ -7,7 +7,7 @@ import store from './store'
 
 import WlAppHeader from '@/components/app-header'
 import WlAppFooter from '@/components/app-footer'
-
+import WlAppPlayerBar from '@/pages/player/app-player-bar'
 import { HashRouter } from 'react-router-dom'
 
 export default memo(function App() {
@@ -16,6 +16,7 @@ export default memo(function App() {
       <HashRouter>
         <WlAppHeader></WlAppHeader>
         {renderRoutes(routes)}
+        <WlAppPlayerBar />
         <WlAppFooter></WlAppFooter>
       </HashRouter>
     </Provider>
