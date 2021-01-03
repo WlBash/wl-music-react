@@ -1,4 +1,4 @@
-import React, { useEffect, memo, useCallback } from 'react';
+import React, { useEffect, memo } from 'react';
 import { useDispatch, useSelector, shallowEqual } from "react-redux";
 //import { useHistory } from 'react-router-dom';
 

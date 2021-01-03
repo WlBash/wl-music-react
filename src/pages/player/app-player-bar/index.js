@@ -1,7 +1,8 @@
 import React, { memo, useRef, useEffect, useState, useCallback } from 'react';
 import { useSelector, shallowEqual, useDispatch } from 'react-redux';
 
-import { message } from 'antd';
+import { Slider, Tooltip, message } from 'antd';
+import { DownloadOutlined, UndoOutlined } from '@ant-design/icons'
 
 import {  getSizeImage, getPlayUrl, formatMinuteSecond } from '@/utils/format-utils';
 import { 
@@ -13,7 +14,6 @@ import {
 
 //import HYAppPlayPanel from '../app-play-panel'
 import { NavLink } from 'react-router-dom';
-import { Slider } from 'antd';
 import {
   PlaybarWrapper,
   Control,
@@ -64,6 +64,7 @@ export default memo(function WlAppPlaybar() {
 
   // 其他业务
   const picUrl = currentSong.al && currentSong.al.picUrl // 图片url
+  const songUrl = getPlayUrl(currentSong.id) // 歌曲URL
   const play = useCallback(() => {
     setIsPlaying(!isPlaying);
     isPlaying ? audioRef.current.pause() : audioRef.current.play().catch(err => {
@@ -125,6 +126,12 @@ export default memo(function WlAppPlaybar() {
     }
   }, [duration, isPlaying, play]);
 
+  // 重新播放音乐
+  const refreshMusic = () => {
+    audioRef.current.currentTime = 0
+    audioRef.current.play()
+  }
+
   return (
     <PlaybarWrapper className="sprite_playbar">
       <div className="content wrap-v2">
@@ -158,13 +165,35 @@ export default memo(function WlAppPlaybar() {
         </PlayInfo>
         <Operator sequence={playSequence}>
           <div className="left">
-            <button className="sprite_playbar btn favor"></button>
-            <button className="sprite_playbar btn share"></button>
+            <Tooltip title="下载音乐">
+              <a
+                download={currentSong && currentSong.name}
+                target="_blank"
+                rel="noopener noreferrer"
+                href={songUrl}
+              >
+                <DownloadOutlined />
+              </a>
+            </Tooltip>
+            <Tooltip title="重新播放">
+              <UndoOutlined className="refresh" onClick={refreshMusic} />
+            </Tooltip>
           </div>
           <div className="right sprite_playbar">
             <button className="sprite_playbar btn volume"></button>
+            <Tooltip
+              title={[
+                '顺序播放',
+                '随机播放',
+                '单曲循环',
+              ].filter((item, index) =>
+                index === playSequence ? item : undefined
+              )}
+            >
             <button className="sprite_playbar btn loop" 
                     onClick={e => dispatch(changePlaySequenceAction(playSequence+1))}></button>
+            </Tooltip>
+            
             <button className="sprite_playbar btn playlist" 
                     onClick={e => setShowPanel(!showPanel)}>
               {playList.length}

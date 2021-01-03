@@ -4,7 +4,7 @@ import {
   hotRadios
 } from "@/services/local-data";
 
-//import HYThemeHeaderSmall from '@/components/theme-header-small';
+import WlThemeHeaderSmall from '@/components/theme-header-small';
 import {
   HotRadioWrapper
 } from './style';
@@ -12,6 +12,7 @@ import {
 export default memo(function WlHotRadio() {
   return (
     <HotRadioWrapper>
+      <WlThemeHeaderSmall title="热门主播" />
       <div className="radio-list">
         {
           hotRadios.map((item, index) => {

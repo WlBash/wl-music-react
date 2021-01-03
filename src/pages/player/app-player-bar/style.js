@@ -32,6 +32,9 @@ export const Control = styled.div`
   .prev {
     cursor: pointer;
     background-position: 0 -130px;
+    &:hover {
+      background-position: -30px -130px;
+    }
   }
   .play {
     cursor: pointer;
@@ -39,10 +42,18 @@ export const Control = styled.div`
     height: 36px;
     margin: 0 8px;
     background-position: 0 ${props => props.isPlaying ? "-165px": "-204px"};
+    &:hover {
+      /* 动态的传递 */
+      background-position: -40px
+        ${props => (props.isPlaying ? '-165px' : '-204px')};
+    }
   }
   .next {
     cursor: pointer;
     background-position: -80px -130px;
+    &:hover {
+      background-position: -110px -130px;
+    }
   }
 `
 
@@ -114,6 +125,21 @@ export const Operator = styled.div`
   }
   .favor {
     background-position: -88px -163px;
+  }
+  .refresh {
+    margin: 0 5px;
+    cursor: pointer;
+    font-size: 17px;
+    color: #9f9f9f;
+    &:hover {
+      color: #ccc;
+    }
+  }
+  .anticon-download {
+    cursor: pointer;
+    padding: 1px 6px;
+    font-size: 19px;
+    color: #adadad;
   }
   .share {
     background-position: -114px -163px;
